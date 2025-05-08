@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIイラスト素材配布サイト</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: #333; color: white; padding: 1em; text-align: center; }
+    main { max-width: 960px; margin: 2em auto; padding: 1em; background: white; border-radius: 8px; }
+    .grid { display: flex; flex-wrap: wrap; gap: 1em; }
+    .item { width: calc(25% - 1em); background: #eee; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .item img { width: 100%; display: block; }
+    .item button { width: 100%; padding: 0.5em; background: #0073e6; color: white; border: none; cursor: pointer; }
+    .item button:disabled { background: #aaa; }
+    footer { text-align: center; margin: 2em 0; font-size: 0.9em; color: #555; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AIイラスト無料配布</h1>
+    <p>動画広告を視聴して、商用利用可能な画像をダウンロード</p>
+  </header>
+  <main>
+    <div class="grid">
+      <div class="item">
+        <img src="sample-thumbnail1.jpg" alt="サンプル画像">
+        <button onclick="watchAd(this)">ダウンロード</button>
+        <a href="image1.png" download style="display:none">画像を保存</a>
+      </div>
+      <div class="item">
+        <img src="sample-thumbnail2.jpg" alt="サンプル画像">
+        <button onclick="watchAd(this)">ダウンロード</button>
+        <a href="image2.png" download style="display:none">画像を保存</a>
+      </div>
+      <!-- 他の素材も同様に追加 -->
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 AIイラスト素材サイト. 素材の商用利用可・再配布禁止。
+  </footer>
+
+  <script>
+    function watchAd(button) {
+      alert("広告を30秒視聴してください（※ここに広告SDKを組み込みます）");
+      // 本来はここで広告を表示 → 終了後にリンク表示
+      const link = button.nextElementSibling;
+      button.disabled = true;
+      setTimeout(() => {
+        link.style.display = 'inline-block';
+        link.click();
+      }, 3000); // デモとして3秒後にダウンロード可
+    }
+  </script>
+</body>
+</html>
